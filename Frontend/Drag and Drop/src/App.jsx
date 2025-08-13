@@ -11,14 +11,14 @@ import List from './List';
 
 
 function App() {
-  const URL = `http://localhost:3000/api`;
+  const URL = `http://localhost:4000/api`;
   const [data, setData] = useState(null);
   const [todo, setTodo] = useState(null);
   const [isProgress, setInProgress] = useState(null);
   const [disucss, setDiscuss] = useState(null);
   const [deployed, setDeployed] = useState(null);
   const fetechData = async () => {
-    await axios.get("http://localhost:3000/api/get")
+    await axios.get("http://localhost:4000/api/get")
       .then(async (result) => {
         const data = result.data.msg;
         const revData = data.reverse();

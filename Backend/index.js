@@ -8,7 +8,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173","http://frontend:5173"],
     credentials: true
 }));
 
@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use("/api",router);
 
-app.listen(PORT,()=>{
+app.listen(PORT,"0.0.0.0",()=>{
     console.log(`Server Startd Port ${PORT}`);
 });
 

@@ -31,7 +31,7 @@ function DragAndDrop({ values }) {
     const putData = { state: container, id: containerId };
 
     try {
-      await axios.put(`http://localhost:3000/api/edit`, putData);
+      await axios.put(`http://localhost:4000/api/edit`, putData);
 
       setData(prev => {
         let draggedItem;
