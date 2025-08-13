@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: drag-mongo
+    ports:
+      - "27017:27017"
+
+  backend:
+    image: shubhojit261/draganddroptodos-backend:latest
+    container_name: drag-backend
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/todosdb
+    depends_on:
+      - mongo
+
+  frontend:
+    image: shubhojit261/draganddroptodos-frontend:latest
+    container_name: drag-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
